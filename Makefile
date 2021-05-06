@@ -6,13 +6,13 @@
 #    By: juepark <juepark@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/05 16:14:23 by juepark           #+#    #+#              #
-#    Updated: 2021/05/05 19:37:10 by juepark          ###   ########.fr        #
+#    Updated: 2021/05/06 21:00:37 by juepark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libasm.a
 
-SRCS		= ft_write.s ft_read.s
+SRCS		= ft_write.s ft_read.s ft_strlen.s ft_strcmp.s ft_strcpy.s ft_strdup.s
 OBJS		= $(SRCS:.s=.o)
 
 NASM		= nasm
