@@ -65,15 +65,18 @@ int main (void)
 
 	draw_box("myFunc", 0);
     printf("[ret] %zd\n[errno] %d\n", ft_read(fd, test_str1, 1000), errno);
+	close(fd);
 
+    fd = open("ft_write.s", O_RDONLY);
 	draw_box("origin", 1);
     printf("[ret] %zd\n[errno] %d\n", read(fd, test_str1, 1000), errno);
 
 	fd = open("invalid_file_name", O_RDONLY);
-
 	draw_box("myFunc", 0);
     printf("[ret] %zd\n[errno] %d\n", ft_read(fd, test_str1, 1000), errno);
 
+	close(fd);
+	fd = open("invalid_file_name", O_RDONLY);
 	draw_box("origin", 1);
     printf("[ret] %zd\n[errno] %d\n", read(fd, test_str1, 1000), errno);
 

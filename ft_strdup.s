@@ -26,7 +26,7 @@ err:
 			push	rax					; save err
 			call	___error			; rax -> errno variable
 			pop		qword[rax]			; qword is data size
-			mov		rax, -1
+			mov		rax, 0
 			ret
 
 	; [ General-purpose registers ]
