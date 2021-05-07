@@ -1,20 +1,27 @@
+; [ ft_strlen ]
+; size_t	ft_strlen(const char *s)
+; rdi = s
+
 section	.text
 			global		_ft_strlen
-											; size_t	ft_strlen(const char *s)
-											; rdi = s
+
 _ft_strlen:								
-			mov			rax, rdi			; put rax to rdi
+			mov			rax, rdi			; put s to rax
 			jmp			.cnt				; start with count
 
 			.inc:
-				inc		rax					; increase rax
-
+				inc		rax					; increase s
 
 			.cnt:
-				cmp		BYTE[rax], 0		; compare rax's byte and eof (compare *rax and 0)
-				jne		.inc				; jump if not equal (increase rax)
+				cmp		BYTE[rax], 0		; compare *(s) and eof
+				jne		.inc				; jump if not equal
 
-			.end:
-				sub		rax, rdi			; subtraction (rax -= rdi)
-											; rdi has the rax's initial value
+			sub		rax, rdi				; subtraction (rax -= rdi) 
 			ret								; rax has renewed value
+
+	; [rax -= rdi]
+	; [s][t][r][i][n][g][\0]
+	;  ^              ^
+	; rdi            rax
+	; (5)            (11)
+	; 11 - 5 = 6 ---> len of "string"

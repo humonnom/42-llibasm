@@ -6,7 +6,7 @@
 #    By: juepark <juepark@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/05 16:14:23 by juepark           #+#    #+#              #
-#    Updated: 2021/05/06 21:00:37 by juepark          ###   ########.fr        #
+#    Updated: 2021/05/07 14:50:29 by juepark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ TEST		= test
 
 %.o:		%.s
 			@$(NASM) $(NASM_FLAGS) $<
+			@printf "Generating libasm... %-33.333s\n" $@
 
 all:		$(NAME)
 
