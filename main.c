@@ -34,6 +34,16 @@ void	move_to_next_func()
 
 int main (void)
 {
+#if 0
+ //   int fd = open("test_write.s", O_WRONLY);
+
+	draw_box("myFunc", 0);
+    printf("[ret] %zd\n[errno] %d\n", ft_write(fd, test_str, i), errno);
+
+	draw_box("origin", 1);
+    printf ("[ret] %zd\n[errno] %d\n", write(fd, test_str, i), errno);
+#endif
+#if 1
 	move_to_next_func();
 	printf ("+--------------------------------------------+\n");
     printf ("|                  ft_write                  |\n");
@@ -54,7 +64,13 @@ int main (void)
 	draw_box("origin", 1);
     printf ("[ret] %zd\n[errno] %d\n", write(-1, test_str, i), errno);
 
+	draw_box("myFunc", 0);
+    printf("[ret] %zd\n[errno] %d\n", ft_write(1, "", i), errno);
 
+	draw_box("origin", 1);
+    printf ("[ret] %zd\n[errno] %d\n", write(1, "", i), errno);
+#endif
+#if 1
 	move_to_next_func();
 	printf ("+--------------------------------------------+\n");
 	printf ("|                  ft_read                   |\n");
@@ -79,7 +95,8 @@ int main (void)
 	fd = open("invalid_file_name", O_RDONLY);
 	draw_box("origin", 1);
     printf("[ret] %zd\n[errno] %d\n", read(fd, test_str1, 1000), errno);
-
+#endif
+#if 1
 	move_to_next_func();
 	printf ("+--------------------------------------------+\n");
     printf ("|                 ft_strlen                  |\n");
@@ -103,28 +120,32 @@ int main (void)
     printf("[errno] %d\n", errno);
 
 
+#endif
+#if 1 
 	move_to_next_func();
 	printf ("+--------------------------------------------+\n");
     printf ("|                 ft_strcmp                  |\n");
 	printf ("+--------------------------------------------+\n");
 
 	draw_box("myFunc", 0);
+    printf("[ret] %d\n", ft_strcmp("", ""));
+    printf("[errno] %d\n", errno);
+	draw_box("origin", 1);
+    printf("[ret] %d\n", strcmp("", ""));
+    printf("[errno] %d\n", errno);
+
+	draw_box("myFunc", 0);
+    printf("[ret] %d\n", ft_strcmp("", "YOOO"));
+    printf("[errno] %d\n", errno);
+	draw_box("origin", 1);
+    printf("[ret] %d\n", strcmp("", "YOOO"));
+    printf("[errno] %d\n", errno);
+
+	draw_box("myFunc", 0);
     printf("[ret] %d\n", ft_strcmp("YOOO", ""));
     printf("[errno] %d\n", errno);
 	draw_box("origin", 1);
     printf("[ret] %d\n", strcmp("YOOO", ""));
-    printf("[errno] %d\n", errno);
-	draw_box("myFunc", 0);
-    printf("[ret] %d\n", ft_strcmp("YOOO", "YOOO"));
-    printf("[errno] %d\n", errno);
-	draw_box("origin", 1);
-    printf("[ret] %d\n", strcmp("YOOO", "YOOO"));
-    printf("[errno] %d\n", errno);
-	draw_box("myFunc", 0);
-    printf("[ret] %d\n", ft_strcmp("YOOO", "AAAAABBBBCCCCCDDDDD"));
-    printf("[errno] %d\n", errno);
-	draw_box("origin", 1);
-    printf("[ret] %d\n", strcmp("YOOO", "AAAAABBBBCCCCCDDDDD"));
     printf("[errno] %d\n", errno);
 	draw_box("myFunc", 0);
     printf("[ret] %d\n", ft_strcmp("", "AAAAABBBBCCCCCDDDDD"));
@@ -134,6 +155,8 @@ int main (void)
     printf("[errno] %d\n", errno);
 
 	move_to_next_func();
+#endif
+#if 1
 	printf ("+--------------------------------------------+\n");
     printf ("|                 ft_strcpy                  |\n");
 	printf ("+--------------------------------------------+\n");
@@ -159,14 +182,15 @@ int main (void)
     printf("[errno] %d\n", errno);
 
 	draw_box("myFunc", 0);
-    printf("[ret] %s\n", ft_strcpy(dst, "It works properly..."));
+    printf("[ret] %s\n", ft_strcpy(dst, "It works properly...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
     printf("[errno] %d\n", errno);
 	draw_box("origin", 1);
-    printf("[ret] %s\n", strcpy(dst, "It works properly..."));
+    printf("[ret] %s\n", strcpy(dst, "It works properly...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
     printf("[errno] %d\n", errno);
 
     free(dst);
-
+#endif
+#if 1 
 	move_to_next_func();
 	printf ("+--------------------------------------------+\n");
     printf ("|                 ft_strdup                  |\n");
@@ -190,13 +214,13 @@ int main (void)
     printf("test_str: [%s]\n", "wohfwohfoewhfeowfheowbfeowfeowfeowijfoew");
 
 	draw_box("myFunc", 0);
-	test_str_dup = strdup("wohfwohfoewhfeowfheowbfeowfeowfeowijfoew");
+	test_str_dup = strdup("wohfwohfoewhfeowfheowbfeowfeowfeowijfoewwohfwohfoewhfeowfheowbfeowfeowfeowijfoew");
     printf("[ret] %s\n", test_str_dup);
     printf("[errno] %d\n", errno);
 	free(test_str_dup);
 
 	draw_box("origin", 1);
-	test_str_dup = ft_strdup("wohfwohfoewhfeowfheowbfeowfeowfeowijfoew");
+	test_str_dup = ft_strdup("wohfwohfoewhfeowfheowbfeowfeowfeowijfoewwohfwohfoewhfeowfheowbfeowfeowfeowijfoew");
     printf("[ret] %s\n", test_str_dup);
     printf("[errno] %d\n", errno);
 	free(test_str_dup);
@@ -214,6 +238,7 @@ int main (void)
     printf("[ret] %s\n", test_str_dup);
     printf("[errno] %d\n", errno);
 	free(test_str_dup);
+#endif
 	
     return (0);	
 }
